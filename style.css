@@ -1,4 +1,23 @@
-/* Reset & Base */
+/* ============================
+   Root Variables
+============================ */
+:root {
+    /* Typography */
+    --font-main: 'Poppins', sans-serif;
+
+    /* Colors */
+    --color-bg: #ffffff;
+    --color-text: #111;
+    --color-muted: #666;
+    --color-primary: #007aff;
+    --color-hover: #0056cc;
+    --color-nav-link: #444;
+    --color-shadow: rgba(0, 0, 0, 0.06);
+}
+
+/* ============================
+     Reset & Base
+  ============================ */
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +25,16 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    color: #111;
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     line-height: 1.6;
     padding: 0 1.5rem;
 }
 
-/* Header */
+/* ============================
+     Header
+  ============================ */
 header {
     display: flex;
     justify-content: space-between;
@@ -24,7 +45,7 @@ header {
 header h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: #222;
+    color: var(--color-text);
 }
 
 nav ul {
@@ -37,7 +58,7 @@ nav a {
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
-    color: #444;
+    color: var(--color-nav-link);
     position: relative;
     padding: 0.25rem 0;
     transition: color 0.3s ease;
@@ -50,19 +71,21 @@ nav a::after {
     bottom: -4px;
     width: 0;
     height: 2px;
-    background-color: #007aff;
+    background-color: var(--color-primary);
     transition: width 0.3s ease;
 }
 
 nav a:hover {
-    color: #007aff;
+    color: var(--color-primary);
 }
 
 nav a:hover::after {
     width: 100%;
 }
 
-/* Hero Section */
+/* ============================
+     Hero Section
+  ============================ */
 .hero {
     text-align: center;
     margin: 4rem 0;
@@ -76,10 +99,12 @@ nav a:hover::after {
 
 .hero p {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--color-muted);
 }
 
-/* Gallery */
+/* ============================
+     Gallery
+  ============================ */
 .gallery .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -92,7 +117,7 @@ nav a:hover::after {
     height: auto;
     display: block;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px var(--color-shadow);
     transition: transform 0.3s ease;
 }
 
@@ -100,12 +125,14 @@ nav a:hover::after {
     transform: scale(1.02);
 }
 
-/* Footer */
+/* ============================
+     Footer
+  ============================ */
 footer {
     text-align: center;
     padding: 2rem 0;
     margin-top: 2rem;
-    color: #666;
+    color: var(--color-muted);
 }
 
 footer .socials {
@@ -114,11 +141,12 @@ footer .socials {
 
 footer .socials a {
     margin: 0 0.75rem;
-    color: #007aff;
+    color: var(--color-primary);
     text-decoration: none;
     font-weight: 500;
 }
 
 footer .socials a:hover {
+    color: var(--color-hover);
     text-decoration: underline;
 }

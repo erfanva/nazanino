@@ -207,3 +207,56 @@ footer .socials a:hover {
 .contact-form button:hover {
     background-color: var(--color-hover);
 }
+
+/* ============================
+   About Page
+============================ */
+.about {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: justify;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+/* Responsive layout */
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .about-text {
+        flex: 2;
+    }
+
+    .about-image {
+        flex: 1;
+        text-align: center;
+    }
+}

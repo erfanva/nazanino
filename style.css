@@ -40,12 +40,43 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 0;
+    position: relative;
 }
 
 header h1 {
     font-size: 2rem;
     font-weight: 700;
     color: var(--color-text);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text);
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.hamburger-menu.opened .bar1 {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+/* Fade out the second bar */
+.hamburger-menu.opened .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.hamburger-menu.opened .bar3 {
+    transform: translateY(-8px) rotate(45deg);
 }
 
 nav ul {
@@ -92,6 +123,41 @@ nav a.active::after {
     width: 100%;
     height: 2px;
     background-color: var(--color-primary);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--color-bg);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 6rem 2rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 90;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
 }
 
 /* ============================

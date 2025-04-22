@@ -24,12 +24,19 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
     padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ============================
@@ -208,9 +215,9 @@ nav a.active::after {
 footer {
     text-align: center;
     padding: 2rem 0;
-    margin-top: 3.5rem;
     color: var(--color-muted);
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: auto;
 }
 
 footer p {

@@ -377,3 +377,12 @@ footer .socials a:hover::before {
         text-align: center;
     }
 }
+
+/* ============================
+   Custom Scrollbar
+============================ */
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) #f1f1f1;
+}

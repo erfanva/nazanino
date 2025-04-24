@@ -39,7 +39,14 @@ jobs:
                 PHOTOS_JSON="$PHOTOS_JSON,"
               fi
               filename=$(basename "$file")
-              PHOTOS_JSON="$PHOTOS_JSON{\"file\":\"$filename\",\"path\":\"photos/$filename\"}"
+              
+              # Calculate MD5 hash of file content
+              file_hash=$(md5sum "$file" | awk '{print $1}')
+              
+              # Create a versioned path that includes the hash
+              versioned_path="photos/$filename?v=$file_hash"
+              
+              PHOTOS_JSON="$PHOTOS_JSON{\"file\":\"$filename\",\"path\":\"$versioned_path\",\"hash\":\"$file_hash\"}"
             fi
           done
           

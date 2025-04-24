@@ -1,0 +1,48 @@
+name: Generate Photos List
+
+on:
+  push:
+    paths:
+      - 'photos/**'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-photos-list:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: List photos directory
+        id: list-photos
+        run: |
+          echo "Generating photos list..."
+          cd photos
+          PHOTOS_JSON="{\"photos\":["
+          
+          first=true
+          for file in *.jpg *.jpeg *.png *.gif *.webp; do
+            if [[ -f "$file" ]]; then
+              if [[ "$first" == true ]]; then
+                first=false
+              else
+                PHOTOS_JSON="$PHOTOS_JSON,"
+              fi
+              PHOTOS_JSON="$PHOTOS_JSON{\"file\":\"$file\",\"path\":\"photos/$file\"}"
+            fi
+          done
+          
+          PHOTOS_JSON="$PHOTOS_JSON]}"
+          echo "$PHOTOS_JSON" > ../photos-list.json
+          echo "Generated photos list successfully."
+
+      - name: Commit and push photos list
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add photos-list.json
+          git commit -m "Update photos list" || echo "No changes to commit"
+          git push 

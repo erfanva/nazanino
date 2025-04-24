@@ -134,6 +134,10 @@ nav a.active::after {
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
+    body {
+        padding: 0 1rem;
+    }
+    
     .hamburger-menu {
         display: block;
     }
@@ -337,6 +341,19 @@ footer .socials a:hover::before {
     margin: 4rem auto;
     padding: 0 1rem;
     text-align: center;
+}
+
+/* Adding responsive styles for contact page on mobile screens */
+@media (max-width: 768px) {
+    .contact {
+        margin: 3rem auto;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .contact-form {
+        padding: 0 0.5rem;
+    }
 }
 
 .contact h2 {

@@ -209,59 +209,6 @@ nav a.active::after {
     transform: scale(1.02);
 }
 
-/* Add styles for photo gallery error messages */
-.gallery .error,
-.gallery .no-photos {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 2rem;
-    color: var(--color-muted);
-    background-color: rgba(0, 0, 0, 0.03);
-    border-radius: 10px;
-    font-size: 1.1rem;
-}
-
-.gallery .error {
-    color: #e74c3c;
-}
-
-/* Loading indicator styles */
-.gallery .loading {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 2rem;
-    color: var(--color-muted);
-    position: relative;
-}
-
-.gallery .loading::after {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top-color: var(--color-primary);
-    animation: spin 1s ease-in-out infinite;
-    margin: 1rem auto 0;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Gallery section header styles */
-.gallery h2 {
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-.gallery > p {
-    text-align: center;
-    color: var(--color-muted);
-    margin-bottom: 2rem;
-}
-
 /* ============================
      Footer
   ============================ */
